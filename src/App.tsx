@@ -12,9 +12,9 @@ function App() {
       <div className="min-h-screen font-sans text-text-main pb-0 selection:bg-primary-orange selection:text-white relative overflow-x-hidden">
          {/* Animated Background Elements */}
          <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-            <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary-orange/5 blur-[120px] rounded-full animate-slow-pan"></div>
-            <div className="absolute top-[40%] right-[-10%] w-[30%] h-[30%] bg-primary-orange/5 blur-[100px] rounded-full animate-slow-pan" style={{ animationDelay: '5s', animationDuration: '25s' }}></div>
-            <div className="absolute bottom-[-10%] left-[20%] w-[50%] h-[50%] bg-primary-orange/5 blur-[150px] rounded-full animate-slow-pan" style={{ animationDelay: '10s', animationDuration: '30s' }}></div>
+            <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-primary-orange opacity-20 blur-[150px] rounded-full mix-blend-screen" style={{ animation: 'slow-pan 20s ease-in-out infinite alternate' }}></div>
+            <div className="absolute top-[40%] right-[-10%] w-[40%] h-[40%] bg-primary-orange opacity-15 blur-[120px] rounded-full mix-blend-screen" style={{ animation: 'slow-pan 25s ease-in-out infinite alternate', animationDelay: '5s' }}></div>
+            <div className="absolute bottom-[-10%] left-[20%] w-[60%] h-[60%] bg-primary-orange opacity-20 blur-[180px] rounded-full mix-blend-screen" style={{ animation: 'slow-pan 30s ease-in-out infinite alternate', animationDelay: '10s' }}></div>
          </div>
 
          <div className="relative z-10 flex flex-col min-h-screen">
