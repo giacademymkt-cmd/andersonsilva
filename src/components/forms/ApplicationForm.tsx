@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { supabase } from '../../lib/supabase';
+import { motion } from 'framer-motion';
 
 export function ApplicationForm() {
   const [formData, setFormData] = useState({
@@ -22,19 +23,19 @@ export function ApplicationForm() {
       const { error } = await supabase
         .from('leads')
         .insert([
-          { 
-            nome: formData.nome, 
-            email: formData.email, 
-            whatsapp: formData.whatsapp, 
-            objetivo: formData.objetivo 
+          {
+            nome: formData.nome,
+            email: formData.email,
+            whatsapp: formData.whatsapp,
+            objetivo: formData.objetivo
           }
         ]);
 
       if (error) throw error;
-      
+
       setSuccess(true);
       setFormData({ nome: '', email: '', whatsapp: '', objetivo: '' }); // clear form
-      
+
     } catch (error: any) {
       console.error('Error submitting application:', error);
       setErrorMsg('Ocorreu um erro ao enviar sua aplicação. Por favor, tente novamente.');
@@ -46,10 +47,16 @@ export function ApplicationForm() {
   return (
     <section id="aplicacao" className="py-24 border-t border-border-subtle bg-bg-dark">
       <div className="max-w-3xl mx-auto px-6">
-        <div className="bg-surface-card border border-border-subtle rounded-3xl p-8 lg:p-12 shadow-2xl relative overflow-hidden">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95, y: 30 }}
+          whileInView={{ opacity: 1, scale: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.7 }}
+          className="bg-surface-card border border-border-subtle rounded-3xl p-8 lg:p-12 shadow-2xl relative overflow-hidden"
+        >
           {/* Subtle Orange Glow in the form background */}
           <div className="absolute top-0 right-0 w-64 h-64 bg-primary-orange opacity-5 blur-[100px] pointer-events-none"></div>
-          
+
           <div className="text-center mb-10 relative z-10">
             <span className="text-primary-orange text-xs font-bold tracking-[0.2em] uppercase mb-4 block">O Próximo Passo</span>
             <h2 className="text-3xl font-bold mb-4 text-white">
@@ -60,12 +67,12 @@ export function ApplicationForm() {
             </p>
             <div className="bg-bg-darkest border border-border-subtle rounded-xl p-6 text-left sm:flex gap-8 justify-center">
               <ul className="text-sm text-text-muted space-y-2 list-disc list-inside">
-                 <li>Treino 100% individualizado</li>
-                 <li>Análise biomecânica por vídeo</li>
+                <li>Treino 100% individualizado</li>
+                <li>Análise biomecânica por vídeo</li>
               </ul>
               <ul className="text-sm text-text-muted space-y-2 list-disc list-inside mt-2 sm:mt-0">
-                 <li>Suporte direto no WhatsApp</li>
-                 <li>Aulas exclusivas sobre fisiologia</li>
+                <li>Suporte direto no WhatsApp</li>
+                <li>Aulas exclusivas sobre fisiologia</li>
               </ul>
             </div>
           </div>
@@ -73,50 +80,50 @@ export function ApplicationForm() {
           <form onSubmit={handleSubmit} className="flex flex-col gap-6 relative z-10 mt-8">
             <div>
               <label htmlFor="nome" className="block text-sm font-medium text-text-muted mb-2">Nome Completo</label>
-              <input 
-                type="text" 
-                id="nome" 
+              <input
+                type="text"
+                id="nome"
                 required
                 className="w-full bg-bg-darkest border border-border-subtle rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary-orange focus:ring-1 focus:ring-primary-orange transition-colors"
                 placeholder="Como devo te chamar?"
-                onChange={e => setFormData({...formData, nome: e.target.value})}
+                onChange={e => setFormData({ ...formData, nome: e.target.value })}
               />
             </div>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-               <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-text-muted mb-2">E-mail Principal</label>
-                  <input 
-                     type="email" 
-                     id="email" 
-                     required
-                     className="w-full bg-bg-darkest border border-border-subtle rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary-orange focus:ring-1 focus:ring-primary-orange transition-colors"
-                     placeholder="seu@melhoremail.com"
-                     onChange={e => setFormData({...formData, email: e.target.value})}
-                  />
-               </div>
-               <div>
-                  <label htmlFor="whatsapp" className="block text-sm font-medium text-text-muted mb-2">WhatsApp</label>
-                  <input 
-                     type="tel" 
-                     id="whatsapp" 
-                     required
-                     className="w-full bg-bg-darkest border border-border-subtle rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary-orange focus:ring-1 focus:ring-primary-orange transition-colors"
-                     placeholder="(DDD) 9 9999-9999"
-                     onChange={e => setFormData({...formData, whatsapp: e.target.value})}
-                  />
-               </div>
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium text-text-muted mb-2">E-mail Principal</label>
+                <input
+                  type="email"
+                  id="email"
+                  required
+                  className="w-full bg-bg-darkest border border-border-subtle rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary-orange focus:ring-1 focus:ring-primary-orange transition-colors"
+                  placeholder="seu@melhoremail.com"
+                  onChange={e => setFormData({ ...formData, email: e.target.value })}
+                />
+              </div>
+              <div>
+                <label htmlFor="whatsapp" className="block text-sm font-medium text-text-muted mb-2">WhatsApp</label>
+                <input
+                  type="tel"
+                  id="whatsapp"
+                  required
+                  className="w-full bg-bg-darkest border border-border-subtle rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary-orange focus:ring-1 focus:ring-primary-orange transition-colors"
+                  placeholder="(DDD) 9 9999-9999"
+                  onChange={e => setFormData({ ...formData, whatsapp: e.target.value })}
+                />
+              </div>
             </div>
 
             <div>
               <label htmlFor="objetivo" className="block text-sm font-medium text-text-muted mb-2">Qual seu principal obstáculo para treinar hoje?</label>
-              <textarea 
-                id="objetivo" 
+              <textarea
+                id="objetivo"
                 rows={4}
                 required
                 className="w-full bg-bg-darkest border border-border-subtle rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary-orange focus:ring-1 focus:ring-primary-orange transition-colors resize-none"
                 placeholder="Exemplo: Fiquei muito tempo parada, sofro com efeito sanfona, dores no joelho..."
-                onChange={e => setFormData({...formData, objetivo: e.target.value})}
+                onChange={e => setFormData({ ...formData, objetivo: e.target.value })}
               ></textarea>
             </div>
 
@@ -125,7 +132,7 @@ export function ApplicationForm() {
                 {errorMsg}
               </div>
             )}
-            
+
             {success && (
               <div className="bg-green-500/10 border border-green-500/50 text-green-500 text-sm p-4 rounded-xl text-center">
                 Aplicação enviada com sucesso! O Anderson entrará em contato com você pelo WhatsApp em breve.
@@ -133,33 +140,33 @@ export function ApplicationForm() {
             )}
 
             <div className="pt-2">
-               <button 
-                  type="submit" 
-                  disabled={isSubmitting || success}
-                  className="w-full bg-primary-orange text-white px-8 py-4 rounded-xl font-bold text-center hover:bg-primary-orange-hover transition-colors shadow-[0_0_20px_rgba(255,77,0,0.2)] disabled:opacity-50 disabled:cursor-not-allowed flex justify-center items-center"
-               >
-                 {isSubmitting ? 'ENVIANDO...' : success ? 'ENVIADO ✅' : 'APLICAR PARA A MENTORIA AGORA'}
-               </button>
-               <p className="text-center text-xs text-text-muted mt-4">
-                  ✅ Seus dados estão seguros. Vagas limitadas por disponibilidade de agenda.
-               </p>
+              <button
+                type="submit"
+                disabled={isSubmitting || success}
+                className="w-full bg-primary-orange text-white px-8 py-4 rounded-xl font-bold text-center hover:bg-primary-orange-hover transition-colors shadow-[0_0_20px_rgba(255,77,0,0.2)] disabled:opacity-50 disabled:cursor-not-allowed flex justify-center items-center"
+              >
+                {isSubmitting ? 'ENVIANDO...' : success ? 'ENVIADO ✅' : 'APLICAR PARA A MENTORIA AGORA'}
+              </button>
+              <p className="text-center text-xs text-text-muted mt-4">
+                ✅ Seus dados estão seguros. Vagas limitadas por disponibilidade de agenda.
+              </p>
             </div>
           </form>
 
           {/* Downsell Secundário Discreto */}
           <div className="mt-12 pt-8 border-t border-border-subtle text-center">
-             <h3 className="text-white font-medium mb-2">Não está pronta para um compromisso de longo prazo?</h3>
-             <p className="text-sm text-text-muted mb-4">Conheça o Desafio Start de 10 Dias. Quebre o sedentarismo e crie o hábito antes da Mentoria.</p>
-             <a 
-               href="https://wa.me/555182241584?text=Ol%C3%A1%21%20Gostaria%20de%20saber%20mais%20sobre%20o%20Desafio%20Start%20de%2010%20Dias." 
-               target="_blank" 
-               rel="noopener noreferrer"
-               className="inline-block text-xs font-bold text-primary-orange border border-primary-orange/30 px-6 py-2 rounded-lg hover:bg-primary-orange/10 transition-colors"
-             >
-                QUERO ENCARAR O DESAFIO DE 10 DIAS
-             </a>
+            <h3 className="text-white font-medium mb-2">Não está pronta para um compromisso de longo prazo?</h3>
+            <p className="text-sm text-text-muted mb-4">Conheça o Desafio Start de 10 Dias. Quebre o sedentarismo e crie o hábito antes da Mentoria.</p>
+            <a
+              href="https://wa.me/555182241584?text=Ol%C3%A1%21%20Gostaria%20de%20saber%20mais%20sobre%20o%20Desafio%20Start%20de%2010%20Dias."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block text-xs font-bold text-primary-orange border border-primary-orange/30 px-6 py-2 rounded-lg hover:bg-primary-orange/10 transition-colors"
+            >
+              QUERO ENCARAR O DESAFIO DE 10 DIAS
+            </a>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

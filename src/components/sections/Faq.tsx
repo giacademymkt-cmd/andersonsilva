@@ -1,4 +1,5 @@
 import { ChevronDown, ArrowRight } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 function FaqItem({ q, a }: { q: string, a: string }) {
   return (
@@ -20,43 +21,55 @@ export function Faq() {
   return (
     <section id="faq" className="py-24 border-t border-border-subtle">
       <div className="max-w-4xl mx-auto px-6 flex flex-col items-center">
-          <div className="text-center mb-16">
-            <span className="text-primary-orange text-xs font-bold tracking-[0.2em] uppercase mb-4 block">Dúvidas Frequentes</span>
-            <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-white">
-              Transparência total
-            </h2>
-            <p className="text-text-muted text-sm">Tire todas as suas dúvidas sobre o funcionamento da Mentoria.</p>
-          </div>
-          
-          <div className="w-full flex flex-col gap-3">
-             <FaqItem 
-                q="A Mentoria é só para quem já treina pesado?" 
-                a="Não. Ajustamos a rotina independentemente de você ser completamente iniciante ou já treinar há anos. O objetivo é a sua progressão estruturada, respeitando sua fase." 
-              />
-             <FaqItem 
-                q="Tenho pouco tempo, consigo resultado treinando 3x na semana?" 
-                a="Com certeza. Menos é mais quando o treino é executado com a intensidade e a escolha de exercícios corretas para sua fase. Eu ajustarei o volume exatamente para os dias que você tem." 
-             />
-             <FaqItem 
-                q="Eu preciso seguir dieta muito restrita?" 
-                a="Nós trabalhamos em conjunto com seus hábitos. Não sou nutricionista e não prescrevo dietas, mas educo sobre como aliar a alimentação ao treinamento de forma fisiologicamente realista." 
-             />
-             <FaqItem 
-                q="Como funciona a avaliação dos vídeos de correção?" 
-                a="Você grava a execução dos exercícios principais pelo celular durante o treino, me envia no WhatsApp, e eu analiso seus ângulos apontando exatamente o que ajustar na biomecânica." 
-             />
-          </div>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          <span className="text-primary-orange text-xs font-bold tracking-[0.2em] uppercase mb-4 block">Dúvidas Frequentes</span>
+          <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-white">
+            Transparência total
+          </h2>
+          <p className="text-text-muted text-sm">Tire todas as suas dúvidas sobre o funcionamento da Mentoria.</p>
+        </motion.div>
 
-          <div className="mt-12">
-             <a 
-               href="https://wa.me/555182241584?text=Ol%C3%A1%2C%20Anderson!%20Li%20as%20D%C3%BAvidas%20Frequentes%20da%20p%C3%A1gina%2C%20mas%20ainda%20tenho%20uma%20pergunta." 
-               target="_blank" 
-               rel="noopener noreferrer" 
-               className="bg-primary-orange text-white px-8 py-4 rounded-xl font-bold text-sm hover:bg-primary-orange-hover transition-colors flex items-center gap-3"
-             >
-               TIRAR DÚVIDAS NO WHATSAPP <ArrowRight className="w-4 h-4" />
-             </a>
-          </div>
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="w-full flex flex-col gap-3"
+        >
+          <FaqItem
+            q="A Mentoria é só para quem já treina pesado?"
+            a="Não. Ajustamos a rotina independentemente de você ser completamente iniciante ou já treinar há anos. O objetivo é a sua progressão estruturada, respeitando sua fase."
+          />
+          <FaqItem
+            q="Tenho pouco tempo, consigo resultado treinando 3x na semana?"
+            a="Com certeza. Menos é mais quando o treino é executado com a intensidade e a escolha de exercícios corretas para sua fase. Eu ajustarei o volume exatamente para os dias que você tem."
+          />
+          <FaqItem
+            q="Eu preciso seguir dieta muito restrita?"
+            a="Nós trabalhamos em conjunto com seus hábitos. Não sou nutricionista e não prescrevo dietas, mas educo sobre como aliar a alimentação ao treinamento de forma fisiologicamente realista."
+          />
+          <FaqItem
+            q="Como funciona a avaliação dos vídeos de correção?"
+            a="Você grava a execução dos exercícios principais pelo celular durante o treino, me envia no WhatsApp, e eu analiso seus ângulos apontando exatamente o que ajustar na biomecânica."
+          />
+        </motion.div>
+
+        <div className="mt-12">
+          <a
+            href="https://wa.me/555182241584?text=Ol%C3%A1%2C%20Anderson!%20Li%20as%20D%C3%BAvidas%20Frequentes%20da%20p%C3%A1gina%2C%20mas%20ainda%20tenho%20uma%20pergunta."
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-primary-orange text-white px-8 py-4 rounded-xl font-bold text-sm hover:bg-primary-orange-hover transition-colors flex items-center gap-3"
+          >
+            TIRAR DÚVIDAS NO WHATSAPP <ArrowRight className="w-4 h-4" />
+          </a>
+        </div>
       </div>
     </section>
   );

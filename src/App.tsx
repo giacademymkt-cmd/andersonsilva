@@ -5,33 +5,44 @@ import { Comparison } from './components/sections/Comparison';
 import { Authority } from './components/sections/Authority';
 import { Faq } from './components/sections/Faq';
 import { ApplicationForm } from './components/forms/ApplicationForm';
+import { Transformations } from './components/sections/Transformations';
 
 function App() {
-  return (
-    <div className="min-h-screen font-sans text-text-main pb-0 selection:bg-primary-orange selection:text-white">
-      <Navbar />
-      <Hero />
-      <Pillars />
-      <Comparison />
-      <Authority />
-      <Faq />
-      <ApplicationForm />
-      
-      {/* Downsell & Footer simple */}
-      <footer className="py-12 border-t border-border-subtle bg-bg-darkest text-center text-xs text-text-muted mt-20">
-         <div className="flex justify-center gap-6 mb-6">
-            <a href="https://www.instagram.com/mentorfitness_andersonsilva/" target="_blank" rel="noopener noreferrer" className="hover:text-primary-orange transition-colors">
-               Instagram
-            </a>
-            <a href="https://wa.me/555182241584" target="_blank" rel="noopener noreferrer" className="hover:text-primary-orange transition-colors">
-               WhatsApp
-            </a>
+   return (
+      <div className="min-h-screen font-sans text-text-main pb-0 selection:bg-primary-orange selection:text-white relative overflow-x-hidden">
+         {/* Animated Background Elements */}
+         <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+            <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary-orange/5 blur-[120px] rounded-full animate-slow-pan"></div>
+            <div className="absolute top-[40%] right-[-10%] w-[30%] h-[30%] bg-primary-orange/5 blur-[100px] rounded-full animate-slow-pan" style={{ animationDelay: '5s', animationDuration: '25s' }}></div>
+            <div className="absolute bottom-[-10%] left-[20%] w-[50%] h-[50%] bg-primary-orange/5 blur-[150px] rounded-full animate-slow-pan" style={{ animationDelay: '10s', animationDuration: '30s' }}></div>
          </div>
-         <p>Anderson Fit © {new Date().getFullYear()}. Todos os direitos reservados.</p>
-         <p className="mt-2">Fisiologia, Treinamento e Individualidade Biológica.</p>
-      </footer>
-    </div>
-  );
+
+         <div className="relative z-10 flex flex-col min-h-screen">
+            <Navbar />
+            <Hero />
+            <Pillars />
+            <Comparison />
+            <Transformations />
+            <Authority />
+            <Faq />
+            <ApplicationForm />
+
+            {/* Downsell & Footer simple */}
+            <footer className="py-12 border-t border-border-subtle bg-bg-darkest text-center text-xs text-text-muted mt-auto">
+               <div className="flex justify-center gap-6 mb-6">
+                  <a href="https://www.instagram.com/mentorfitness_andersonsilva/" target="_blank" rel="noopener noreferrer" className="hover:text-primary-orange transition-colors">
+                     Instagram
+                  </a>
+                  <a href="https://wa.me/555182241584" target="_blank" rel="noopener noreferrer" className="hover:text-primary-orange transition-colors">
+                     WhatsApp
+                  </a>
+               </div>
+               <p>Anderson Fit © {new Date().getFullYear()}. Todos os direitos reservados.</p>
+               <p className="mt-2">Fisiologia, Treinamento e Individualidade Biológica.</p>
+            </footer>
+         </div>
+      </div>
+   );
 }
 
 export default App;
