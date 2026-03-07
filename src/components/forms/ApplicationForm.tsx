@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { supabase } from '../../lib/supabase';
 
 export function ApplicationForm() {
   const [formData, setFormData] = useState({
@@ -7,12 +8,39 @@ export function ApplicationForm() {
     whatsapp: '',
     objetivo: '',
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [errorMsg, setErrorMsg] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Supabase intergration will go here
-    console.log('Sending data:', formData);
-    alert('Aplicação recebida com sucesso! Em breve o Anderson entrará em contato via WhatsApp.');
+    setIsSubmitting(true);
+    setErrorMsg('');
+    setSuccess(false);
+
+    try {
+      const { error } = await supabase
+        .from('leads')
+        .insert([
+          { 
+            nome: formData.nome, 
+            email: formData.email, 
+            whatsapp: formData.whatsapp, 
+            objetivo: formData.objetivo 
+          }
+        ]);
+
+      if (error) throw error;
+      
+      setSuccess(true);
+      setFormData({ nome: '', email: '', whatsapp: '', objetivo: '' }); // clear form
+      
+    } catch (error: any) {
+      console.error('Error submitting application:', error);
+      setErrorMsg('Ocorreu um erro ao enviar sua aplicação. Por favor, tente novamente.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -92,9 +120,25 @@ export function ApplicationForm() {
               ></textarea>
             </div>
 
+            {errorMsg && (
+              <div className="bg-red-500/10 border border-red-500/50 text-red-500 text-sm p-4 rounded-xl text-center">
+                {errorMsg}
+              </div>
+            )}
+            
+            {success && (
+              <div className="bg-green-500/10 border border-green-500/50 text-green-500 text-sm p-4 rounded-xl text-center">
+                Aplicação enviada com sucesso! O Anderson entrará em contato com você pelo WhatsApp em breve.
+              </div>
+            )}
+
             <div className="pt-2">
-               <button type="submit" className="w-full bg-primary-orange text-white px-8 py-4 rounded-xl font-bold text-center hover:bg-primary-orange-hover transition-colors shadow-[0_0_20px_rgba(255,77,0,0.2)]">
-                 APLICAR PARA A MENTORIA AGORA
+               <button 
+                  type="submit" 
+                  disabled={isSubmitting || success}
+                  className="w-full bg-primary-orange text-white px-8 py-4 rounded-xl font-bold text-center hover:bg-primary-orange-hover transition-colors shadow-[0_0_20px_rgba(255,77,0,0.2)] disabled:opacity-50 disabled:cursor-not-allowed flex justify-center items-center"
+               >
+                 {isSubmitting ? 'ENVIANDO...' : success ? 'ENVIADO ✅' : 'APLICAR PARA A MENTORIA AGORA'}
                </button>
                <p className="text-center text-xs text-text-muted mt-4">
                   ✅ Seus dados estão seguros. Vagas limitadas por disponibilidade de agenda.
