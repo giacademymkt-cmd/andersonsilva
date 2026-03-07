@@ -28,7 +28,7 @@ export function Hero() {
         </span>
         
         <h1 className="text-5xl md:text-[64px] font-bold leading-[1.05] mb-8 tracking-tight text-white">
-          CONSTRUA UM CORPO FORTE E SUSTENTÁVEL <br className="hidden md:block"/> <span className="text-primary-orange">SEM GENERICIDADES.</span>
+          TRANSFORME SEU CORPO <br className="hidden md:block"/> <span className="text-primary-orange">SEM DIETAS RESTRITIVAS.</span>
         </h1>
         
         <p className="text-lg text-text-muted mb-10 max-w-xl leading-relaxed">
