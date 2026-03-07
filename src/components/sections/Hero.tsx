@@ -18,11 +18,11 @@ export function Hero() {
         </span>
         
         <h1 className="text-5xl md:text-[64px] font-bold leading-[1.05] mb-8 tracking-tight text-white">
-          RECUPERE SUA ENERGIA E CONSTRUA UM <br className="hidden md:block"/> CORPO FORTE
+          CONSTRUA UM CORPO FORTE E SUSTENTÁVEL <br className="hidden md:block"/> <span className="text-primary-orange">SEM GENERICIDADES.</span>
         </h1>
         
         <p className="text-lg text-text-muted mb-10 max-w-xl leading-relaxed">
-          Abandone as planilhas genéricas que não dão resultado. Trabalhamos com estratégias validadas de hipertrofia e emagrecimento que transformam sua rotina de verdade.
+          Um acompanhamento individualizado que respeita sua rotina agitada e ensina seu corpo a trabalhar a seu favor. Sem dietas malucas, sem treinos intermináveis.
         </p>
         
         <div className="flex flex-wrap items-center gap-4 mb-10 text-xs font-medium border border-border-subtle rounded-xl p-2 bg-surface-card/30 backdrop-blur-sm shadow-xl">
@@ -36,7 +36,10 @@ export function Hero() {
         </div>
 
         <a href="#aplicacao" className="bg-primary-orange text-white px-8 py-4 rounded-xl font-bold text-sm lg:text-base hover:bg-primary-orange-hover transition-colors flex items-center gap-3">
-          QUERO MUDAR MEU CORPO <ArrowRight className="w-4 h-4" />
+          QUERO AVALIAR MEU CASO AGORA <ArrowRight className="w-4 h-4" />
+        </a>
+        <a href="#metodologia" className="text-text-muted hover:text-white mt-6 text-sm flex items-center gap-2 transition-colors">
+          Quero conhecer a metodologia primeiro ↓
         </a>
       </div>
 
@@ -54,7 +57,7 @@ export function Hero() {
               </div>
               <div>
                  <p className="text-xs font-medium text-white">Nova meta atingida</p>
-                 <p className="text-[10px] text-text-muted">Desafio de 10 dias concluído</p>
+                 <p className="text-[10px] text-text-muted">Massa magra construída</p>
               </div>
            </div>
         </div>

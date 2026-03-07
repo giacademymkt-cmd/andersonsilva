@@ -11,39 +11,37 @@ export function Comparison() {
     <section className="py-24" id="sobre">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-16">
-          <span className="text-primary-orange text-xs font-bold tracking-[0.2em] uppercase mb-4 block">Comparação</span>
+          <span className="text-primary-orange text-xs font-bold tracking-[0.2em] uppercase mb-4 block">Comparação Detalhada</span>
           <h2 className="text-3xl lg:text-5xl font-bold text-white max-w-3xl mx-auto leading-tight">
-             Por que <span className="italic">somos diferentes</span> das planilhas de internet
+             Por que <span className="italic">somos diferentes</span> das planilhas de internet?
           </h2>
-          <p className="text-text-muted mt-6 text-sm">Veja a diferença entre o que os apps vendem e a abordagem individual da Mentoria.</p>
+          <p className="text-text-muted mt-6 text-sm">O seu corpo não é uma máquina de suar. É um sistema fisiológico inteligente.</p>
         </div>
 
         <div className="border border-border-subtle rounded-3xl overflow-hidden flex flex-col md:flex-row bg-surface-card text-sm">
            <div className="w-full md:w-1/2">
               <div className="bg-bg-darkest p-6 text-center border-b border-border-subtle text-text-muted font-bold tracking-widest text-xs uppercase">
-                 Planilhas Prontas vs Apps
+                 Apps Genéricos & Planilhas
               </div>
               <div className="flex flex-col">
-                 <CompareItem text="Você nunca entende os vídeos, ou pior: se lesiona." side="left" />
-                 <CompareItem text="Falam só de carga, mas não entendem sua biomecânica." side="left" />
-                 <CompareItem text="Treinos genéricos que só te cansam e não atraem hipertrofia." side="left" />
-                 <CompareItem text="Limitam-se a entregar o PDF e deixar você se virar." side="left" />
-                 <CompareItem text="Prometem resultados rápidos e milagrosos (projeto verão de 15 dias)." isLast side="left" />
+                 <CompareItem text="Você nunca entende os vídeos, não sabe se a postura está certa, ou pior: se lesiona silenciosamente." side="left" />
+                 <CompareItem text="Falam apenas sobre 'aumentar a carga', mas ignoram a sua biomecânica e conforto articular." side="left" />
+                 <CompareItem text="Prometem resultados mágicos em 15 dias (projeto verão que destrói a saúde mental)." side="left" />
+                 <CompareItem text="Limitam-se a te mandar um PDF e largar você à própria sorte na academia." isLast side="left" />
               </div>
            </div>
            
            {/* The Orange Highlighted Side */}
            <div className="w-full md:w-1/2 border-l border-border-subtle bg-bg-dark relative">
               <div className="absolute inset-0 bg-primary-orange opacity-5 pointer-events-none"></div>
-              <div className="bg-primary-orange p-6 text-center border-b border-primary-orange text-white font-bold tracking-widest text-xs uppercase">
+              <div className="bg-primary-orange p-6 text-center border-b border-primary-orange text-white font-bold tracking-widest text-xs uppercase shadow-[0_4px_20px_rgba(255,77,0,0.3)] z-10 relative">
                  Mentoria Anderson Fit
               </div>
               <div className="flex flex-col relative z-10">
-                 <CompareItem text="Você recebe feedbacks semanais, correções de vídeo e acesso ao WhatsApp." side="right" />
-                 <CompareItem text="Nós olhamos o todo: analisamos sua alimentação, sono e execução." side="right" />
-                 <CompareItem text="Estratégias personalizadas para preservar sua saúde articular e esculpir músculos." side="right" />
-                 <CompareItem text="Trabalhamos como parceiros: plano de ação flexível caso imprevistos aconteçam." side="right" />
-                 <CompareItem text="Falamos a verdade: foco em constância de longo prazo, sem atalhos que destruam sua mente." isLast side="right" />
+                 <CompareItem text="Você recebe correções de vídeo detalhadas, garantindo segurança e recrutamento máximo da musculatura." side="right" />
+                 <CompareItem text="Nós olhamos o todo: se você dormiu mal, adaptamos a carga para proteger seu sistema nervoso." side="right" />
+                 <CompareItem text="Falamos a verdade: focamos na constância sustentável. O resultado é efeito colateral de um corpo saudável." side="right" />
+                 <CompareItem text="WhatsApp aberto para tirar dúvidas na hora do treino, como se eu estivesse ao seu lado." isLast side="right" />
               </div>
            </div>
         </div>
