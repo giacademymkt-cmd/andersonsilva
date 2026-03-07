@@ -106,9 +106,14 @@ export function ApplicationForm() {
           <div className="mt-12 pt-8 border-t border-border-subtle text-center">
              <h3 className="text-white font-medium mb-2">Não está pronta para um compromisso de longo prazo?</h3>
              <p className="text-sm text-text-muted mb-4">Conheça o Desafio Start de 10 Dias. Quebre o sedentarismo e crie o hábito antes da Mentoria.</p>
-             <button className="text-xs font-bold text-primary-orange border border-primary-orange/30 px-6 py-2 rounded-lg hover:bg-primary-orange/10 transition-colors">
+             <a 
+               href="https://wa.me/555182241584?text=Ol%C3%A1%21%20Gostaria%20de%20saber%20mais%20sobre%20o%20Desafio%20Start%20de%2010%20Dias." 
+               target="_blank" 
+               rel="noopener noreferrer"
+               className="inline-block text-xs font-bold text-primary-orange border border-primary-orange/30 px-6 py-2 rounded-lg hover:bg-primary-orange/10 transition-colors"
+             >
                 QUERO ENCARAR O DESAFIO DE 10 DIAS
-             </button>
+             </a>
           </div>
         </div>
       </div>

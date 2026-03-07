@@ -18,9 +18,14 @@ export function Navbar() {
           <a href="#contato" className="hover:text-white transition-colors">Contato</a>
         </nav>
 
-        <button className="hidden sm:block bg-transparent border border-border-subtle text-white px-6 py-2 rounded-2xl hover:bg-surface-hover transition-colors text-sm">
+        <a 
+          href="https://wa.me/555182241584?text=Ol%C3%A1%2C%20Anderson!%20Vim%20pela%20p%C3%A1gina%20e%20gostaria%20de%20tirar%20d%C3%BAvidas%20sobre%20a%20Mentoria."
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hidden sm:block bg-transparent border border-border-subtle text-white px-6 py-2 rounded-2xl hover:bg-surface-hover transition-colors text-sm"
+        >
           Falar no WhatsApp
-        </button>
+        </a>
       </header>
     </div>
   );

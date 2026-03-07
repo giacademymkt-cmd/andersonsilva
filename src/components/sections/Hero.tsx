@@ -1,10 +1,20 @@
 import { ArrowRight, Target } from 'lucide-react';
 
-function UserPlaceholder() {
+function ClientHeroMedia() {
   return (
-    <div className="w-full h-full bg-surface-card flex items-end justify-center relative">
-       <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center opacity-40 mix-blend-luminosity grayscale"></div>
+    <div className="w-full h-full bg-surface-card flex items-end justify-center relative overflow-hidden">
+       {/* Vídeo real do cliente em loop com filtro Castrum aplicado */}
+       <video 
+         autoPlay 
+         loop 
+         muted 
+         playsInline
+         className="absolute inset-0 w-full h-full object-cover opacity-50 mix-blend-luminosity grayscale"
+       >
+         <source src="/images/hero-video.mp4" type="video/mp4" />
+       </video>
        <div className="absolute inset-0 bg-gradient-to-t from-bg-darkest via-bg-darkest/40 to-transparent"></div>
+       <div className="absolute inset-0 bg-primary-orange mix-blend-overlay opacity-10"></div>
     </div>
   )
 }
@@ -48,7 +58,7 @@ export function Hero() {
            {/* Dynamic background glow inside the image container */}
            <div className="absolute top-10 right-10 w-96 h-96 bg-primary-orange opacity-20 blur-[100px] rounded-full mix-blend-screen pointer-events-none"></div>
            
-           <UserPlaceholder />
+           <ClientHeroMedia />
 
            {/* Floating Achievement Widget */}
            <div className="absolute top-20 -left-10 lg:-left-20 bg-surface-card border border-border-subtle p-3 pr-6 rounded-2xl flex items-center gap-4 shadow-2xl backdrop-blur-md">

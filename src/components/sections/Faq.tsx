@@ -48,8 +48,13 @@ export function Faq() {
           </div>
 
           <div className="mt-12">
-             <a href="#aplicacao" className="bg-primary-orange text-white px-8 py-4 rounded-xl font-bold text-sm hover:bg-primary-orange-hover transition-colors flex items-center gap-3">
-               PREENCHER APLICAÇÃO AGORA <ArrowRight className="w-4 h-4" />
+             <a 
+               href="https://wa.me/555182241584?text=Ol%C3%A1%2C%20Anderson!%20Li%20as%20D%C3%BAvidas%20Frequentes%20da%20p%C3%A1gina%2C%20mas%20ainda%20tenho%20uma%20pergunta." 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               className="bg-primary-orange text-white px-8 py-4 rounded-xl font-bold text-sm hover:bg-primary-orange-hover transition-colors flex items-center gap-3"
+             >
+               TIRAR DÚVIDAS NO WHATSAPP <ArrowRight className="w-4 h-4" />
              </a>
           </div>
       </div>
