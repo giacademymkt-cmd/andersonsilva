@@ -70,16 +70,16 @@ export function Hero() {
           <div className="absolute top-10 right-10 w-96 h-96 bg-primary-orange opacity-20 blur-[100px] rounded-full mix-blend-screen pointer-events-none"></div>
 
           <ClientHeroMedia />
+        </div>
 
-          {/* Floating Achievement Widget */}
-          <div className="absolute top-20 -left-10 lg:-left-20 bg-surface-card border border-border-subtle p-3 pr-6 rounded-2xl flex items-center gap-4 shadow-2xl backdrop-blur-md">
-            <div className="w-10 h-10 rounded-xl bg-primary-orange flex items-center justify-center">
-              <Target className="w-5 h-5 text-white" />
-            </div>
-            <div>
-              <p className="text-xs font-medium text-white">Nova meta atingida</p>
-              <p className="text-[10px] text-text-muted">Massa magra construída</p>
-            </div>
+        {/* Floating Achievement Widget */}
+        <div className="absolute top-20 -left-10 lg:-left-20 bg-surface-card border border-border-subtle p-3 pr-6 rounded-2xl flex items-center gap-4 shadow-2xl backdrop-blur-md z-20">
+          <div className="w-10 h-10 shrink-0 rounded-xl bg-primary-orange flex items-center justify-center">
+            <Target className="w-5 h-5 text-white" />
+          </div>
+          <div>
+            <p className="text-xs font-medium text-white">Nova meta atingida</p>
+            <p className="text-[10px] text-text-muted">Massa magra construída</p>
           </div>
         </div>
       </motion.div>
