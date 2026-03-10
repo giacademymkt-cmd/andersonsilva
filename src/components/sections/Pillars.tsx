@@ -41,7 +41,7 @@ export function Pillars() {
           <PillarCard
             icon={<Target />}
             title="Execução Inteligente"
-            desc="Nada de achismo. Cada semana é estrategicamente desenhada para gerar progressão, variando volume e intensidade."
+            desc="Nada de achismo. Estrategicamente desenhado para gerar progressão, variando volume e intensidade."
           />
           <PillarCard
             icon={<TrendingUp />}
